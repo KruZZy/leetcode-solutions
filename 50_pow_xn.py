@@ -3,14 +3,15 @@ class Solution(object):
         a = 1 
         if n < 0:
             x = 1/x 
-            n *= -1 
+            n = -n 
         
         while n > 0:
-            if n & 1:
+            if n % 2 == 1:
                 a *= x
             x *= x
-            n >>= 1 
+            n //= 2
         return a 
 
 S = Solution() 
 print(S.myPow(10, 2))
+# output: 100
