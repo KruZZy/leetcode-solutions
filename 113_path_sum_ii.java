@@ -5,16 +5,12 @@ class Solution {
         solution = new ArrayList<>();
         candidate = new ArrayList<Integer>();
 
-        if(root != null)
-            this.path(root, targetSum);
+        this.tryExpand(root, targetSum);
 
         return this.solution;
     }
 
     public void path(TreeNode root, int remSum) {
-        this.candidate.add(root.val);
-        remSum -= root.val;
-
         if(root.left == null && root.right == null && remSum == 0) 
             this.solution.add(new ArrayList(this.candidate)); 
 
@@ -24,6 +20,8 @@ class Solution {
 
     public void tryExpand(TreeNode root, int remSum) {
         if(root != null) {
+            this.candidate.add(root.val);
+            remSum -= root.val;
             this.path(root, remSum);
             this.candidate.remove(candidate.size()-1);
         }
