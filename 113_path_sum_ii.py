@@ -8,7 +8,7 @@ class Solution(object):
         if root.left == None and root.right == None and remSum-root.val == 0:
             return [[root.val]]
 
-        leftCand = path(root.left, remSum - root.val)
-        rightCand = path(root.right, remSum - root.val)
+        leftCand = self.path(root.left, remSum - root.val)
+        rightCand = self.path(root.right, remSum - root.val)
         
-        return [path + [root.val] for path in leftCand + rightCand]
+        return [sol + [root.val] for sol in leftCand + rightCand]
